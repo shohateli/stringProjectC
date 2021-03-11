@@ -320,6 +320,23 @@ char *strchr(char *str, int c)
     }
 }
 
+int QT_strchr()
+{
+    char inputString[] = "hay";
+    char result = *strchr(inputString, 97);
+    char expectedResult = 'a';
+    if (result == expectedResult)
+    {
+        printf("Test for strchr:  passed!\n");
+        return 0;
+    }
+    else
+    {
+        printf("Test for strchr:  failed!\n");
+        return 1;
+    }
+}
+
 int main()
 {
     char string[7] = "helloa";
@@ -336,6 +353,7 @@ int main()
     QT_strupr();
     QT_strlen();
     QT_strncpy();
+    QT_strchr();
 
     return 0;
 }
