@@ -291,6 +291,23 @@ char *strncpy(char *dest, char *src, int n)
     return dest;
 }
 
+int QT_strncpy()
+{
+    char dest[6];
+    char src[6] = "hello";
+    strncpy(dest, src, 6);
+    for (int i = 0; i < 5; i++)
+    {
+        if (dest[i] != src[i])
+        {
+            printf("Test for strncpy:  failed!\n");
+            return 1;
+        }
+    }
+    printf("Test for strncpy:  passed!\n");
+    return 0;
+}
+
 char *strchr(char *str, int c)
 {
     for (int i = 0; str[i] != '\0'; i++)
@@ -318,6 +335,7 @@ int main()
     QT_strlwr();
     QT_strupr();
     QT_strlen();
+    QT_strncpy();
 
     return 0;
 }
