@@ -211,22 +211,18 @@ char *strlwr(char *str)
 
 int QT_strlwr()
 {
-    char inputStr[] = "TEST";
-    char expectedResult[] = "test";
-
-    //printf("%s\n", strlwr(inputStr));
-    strlwr(inputStr);
-    printf("%s", inputStr);
-    // char result[5] = strlwr(inputStr);
-    // for (int i = 0; i < 4; i++)
-    // {
-    //     if (result[i] != expectedResult[i])
-    //     {
-    //         printf("Test for strlwr:  failed!\n");
-    //         return 1;
-    //     }
-    // }
-    // printf("Test for strlwr:  passed!\n");
+    char inputValue[] = "TEST STRING";
+    char expectedValue[] = "test string";
+    strlwr(inputValue);
+    for (int i = 0; i < 11; i++)
+    {
+        if (inputValue[i] != expectedValue[i])
+        {
+            printf("Test for strlwr:  failed!\n");
+            return 1;
+        }
+    }
+    printf("Test for strlwr:  passed!\n");
     return 0;
 }
 
@@ -242,6 +238,23 @@ char *strupr(char *str)
     return str;
 }
 
+int QT_strupr()
+{
+    char inputValue[] = "test string";
+    char expectedValue[] = "TEST STRING";
+    strupr(inputValue);
+    for (int i = 0; i < 11; i++)
+    {
+        if (inputValue[i] != expectedValue[i])
+        {
+            printf("Test for strupr:  failed!\n");
+            return 1;
+        }
+    }
+    printf("Test for strupr:  passed!\n");
+    return 0;
+}
+
 int strlen(const char *str)
 {
     int count = 0;
@@ -250,6 +263,23 @@ int strlen(const char *str)
         count++;
     }
     return count;
+}
+
+int QT_strlen()
+{
+    char inputValue[6] = "hello";
+    int expectedValue = 5;
+    int returnedValue = strlen(inputValue);
+    if (returnedValue == expectedValue)
+    {
+        printf("Test for strlen: passed!\n");
+        return 0;
+    }
+    else
+    {
+        printf("Test for strlen:  failed!\n");
+        return 1;
+    }
 }
 
 char *strncpy(char *dest, char *src, int n)
@@ -280,12 +310,14 @@ int main()
 
     //printf("%d", strncmp(string, string2, 7));
 
-    //testing
-    //printf("%d\n", QT_strrev());
-    //printf("%d\n", QT_strcmp());
-    //printf("%d\n", QT_strcmpi());
-    //printf("%d\n", QT_strncmp());
-    printf("%d\n", QT_strlwr());
+    // testing
+    QT_strrev();
+    QT_strcmp();
+    QT_strcmpi();
+    QT_strncmp();
+    QT_strlwr();
+    QT_strupr();
+    QT_strlen();
 
     return 0;
 }
