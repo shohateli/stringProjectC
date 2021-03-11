@@ -180,10 +180,10 @@ int strncmp(char *string_1, char *string_2, int n)
 
 int QT_strncmp()
 {
-    char str1[] = "hello";
-    char str2[] = "helloa";
+    char str1[] = "heblo";
+    char str2[] = "healoa";
     int result = strncmp(str1, str2, 3);
-    if (result == 0)
+    if (result == 1)
     {
         printf("Test strncmp:  passed!\n");
         return 0;
@@ -197,14 +197,37 @@ int QT_strncmp()
 
 char *strlwr(char *str)
 {
-    for (int i = 0; str[i] != '\0'; i++)
+    int i;
+    for (i = 0; str[i] != '\0'; i++)
     {
         if (str[i] >= 'A' && str[i] <= 'Z')
         {
             str[i] = str[i] + 32;
         }
     }
+    str[i] = '\0';
     return str;
+}
+
+int QT_strlwr()
+{
+    char inputStr[] = "TEST";
+    char expectedResult[] = "test";
+
+    //printf("%s\n", strlwr(inputStr));
+    strlwr(inputStr);
+    printf("%s", inputStr);
+    // char result[5] = strlwr(inputStr);
+    // for (int i = 0; i < 4; i++)
+    // {
+    //     if (result[i] != expectedResult[i])
+    //     {
+    //         printf("Test for strlwr:  failed!\n");
+    //         return 1;
+    //     }
+    // }
+    // printf("Test for strlwr:  passed!\n");
+    return 0;
 }
 
 char *strupr(char *str)
@@ -261,7 +284,8 @@ int main()
     //printf("%d\n", QT_strrev());
     //printf("%d\n", QT_strcmp());
     //printf("%d\n", QT_strcmpi());
-    printf("%d\n", QT_strncmp());
+    //printf("%d\n", QT_strncmp());
+    printf("%d\n", QT_strlwr());
 
     return 0;
 }
