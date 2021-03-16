@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void strrev(char *string)
+char *strrev(char *string)
 {
     int begin, end, count = 0;
 
@@ -23,6 +23,7 @@ void strrev(char *string)
     {
         string[i] = r[i];
     }
+    return string;
 }
 
 int QT_strrev()
@@ -293,10 +294,11 @@ char *strncpy(char *dest, char *src, int n)
 
 int QT_strncpy()
 {
-    char dest[6];
-    char src[6] = "hello";
-    strncpy(dest, src, 6);
-    for (int i = 0; i < 5; i++)
+    char dest[4];
+    char src[4] = "hel";
+    strncpy(dest, src, 1);
+    // printf("%s\t%s", dest, src);
+    for (int i = 0; i < 1; i++)
     {
         if (dest[i] != src[i])
         {
